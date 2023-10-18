@@ -4,7 +4,7 @@ FROM golang:latest as builder
 LABEL maintainer="Andrew Bennett"
 WORKDIR /app
 COPY go.mod go.sum ./
-RUN go mod downloadr
+RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
